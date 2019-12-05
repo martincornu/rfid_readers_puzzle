@@ -1,0 +1,12 @@
+Project name: rfid readers
+Room: Peter Pan
+Deadline for test : 30 november 2019
+
+Use case:
+A player place 5 objects with rfid tag in it in order to open a door.
+
+Work:
+Code a software that activate an ouput regarding inputs activated by RFID.
+Be able to easily change the number of rfid readers.
+
+
