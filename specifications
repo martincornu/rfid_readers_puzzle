@@ -8,5 +8,9 @@ A player place 5 objects with rfid tag in it in order to open a door.
 Work:
 Code a software that activate an ouput regarding inputs activated by RFID.
 Be able to easily change the number of rfid readers.
+Turn on green led if puzzle ok, red led if not.
 
+Time working:
+- 05/12 21h -> 1h 4h
+- 13/12 18h30 -> 19h30 1h
 
