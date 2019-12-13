@@ -17,13 +17,14 @@
 
 /***************************** VARIABLES ***************************************/
 const uint8_t numReaders = 3;           /* Nombre de lecteurs RFID */
-const uint8_t ssPins[] = {2,3,4};           /* Pin "SDA" de chaque reader */
+const uint8_t ssPins[] = {2,3,4};   /* Pin "SDA" de chaque reader */
 const uint8_t resetPin = 8;             /* Pin reset partagee par l'ensemble des readers */
 const uint8_t ledGreenPin = A2;          /* Pin de la led verte */
 const uint8_t ledRedPin = A3;           /* Pin de la led rouge */
 const uint8_t lockPin = A0;             /* Pin de sortie a activer/desactiver si le puzzle est resolu*/
 uint8_t       lockPinState = HIGH;      /* HIGH pour desactiver la sortie. LOW pour activer la sortie. */
 
+// All IDs : "3a849315", "59a4b82b", "d772784b", "2a32d116", "8af38216"
 const String  correctIDs[] = {"3a849315", "59a4b82b", "d772784b"}; /* Suite d'identifiant de readers à realiser pour resoudre le puzzle */
 
 MFRC522 mfrc522[numReaders];
