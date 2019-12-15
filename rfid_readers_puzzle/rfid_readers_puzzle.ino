@@ -13,7 +13,7 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-#define DEBUG
+//#define DEBUG
 
 /***************************** VARIABLES ***************************************/
 const uint8_t numReaders = 3;           /* Nombre de lecteurs RFID */
