@@ -13,7 +13,11 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-//#define DEBUG
+//#define DEBUG         // Décommenter si besoin d'afficher des infos au moniteur série
+//#define ONE_SHOT      // Décommenter si besoin de laisser la sortie eletroaimant allumée/éteinte à la fin du programme
+                        // Si commenté alors attente de TIME_WAIT_S puis relancement du programe
+
+#define TIME_WAIT_S 10  //Temps d'attente en secondes avant de relancer le puzzle
 
 /***************************** VARIABLES ***************************************/
 const uint8_t numReaders = 3;           /* Nombre de lecteurs RFID */
@@ -137,9 +141,13 @@ void loop() {
     digitalWrite(lockPin, !lockPinState);
     digitalWrite(ledGreenPin, HIGH);
     digitalWrite(ledRedPin, LOW);
-
-    /* Exit program */
-    while(1){}
+    
+  #ifdef ONE_SHOT
+    while(1){}  //exit program
+  #else
+    delay(TIME_WAIT_S * 1000); 
+    digitalWrite(lockPin, !lockPinState); // rearm electromagnet, leds will be reinit next loop
+  #endif
   }
   else
   {
