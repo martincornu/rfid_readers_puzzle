@@ -13,7 +13,7 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-//#define DEBUG         // Décommenter si besoin d'afficher des infos au moniteur série
+#define DEBUG         // Décommenter si besoin d'afficher des infos au moniteur série
 //#define ONE_SHOT      // Décommenter si besoin de laisser la sortie eletroaimant allumée/éteinte à la fin du programme
                         // Si commenté alors attente de TIME_WAIT_S puis relancement du programe
 
@@ -21,9 +21,10 @@
 
 /***************************** VARIABLES ***************************************/
 const uint8_t numReaders = 3;           /* Nombre de lecteurs RFID */
-const uint8_t ssPins[] = {2,3,4};   /* Pin "SDA" de chaque reader */
+const uint8_t ssPins[] = {2,3,4};       /* Pin "SDA" de chaque reader */
+
 const uint8_t resetPin = 8;             /* Pin reset partagee par l'ensemble des readers */
-const uint8_t ledGreenPin = A2;          /* Pin de la led verte */
+const uint8_t ledGreenPin = A2;         /* Pin de la led verte */
 const uint8_t ledRedPin = A3;           /* Pin de la led rouge */
 const uint8_t lockPin = A0;             /* Pin de sortie a activer/desactiver si le puzzle est resolu*/
 uint8_t       lockPinState = HIGH;      /* HIGH pour desactiver la sortie. LOW pour activer la sortie. */

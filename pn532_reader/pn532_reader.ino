@@ -14,7 +14,7 @@ If a tag is present, it checks its ID and if the ID is correct it trigger an out
 #define DEBUG
 
 #define OUTPUT_PIN      (uint8_t)6
-#define CARD_ID         (uint32_t)380037037
+#define CARD_ID         (uint32_t)3600474797
 #define OUTPUT_STATE_ON HIGH
 
 // If using the breakout with SPI, define the pins for SPI communication.
@@ -33,6 +33,7 @@ void setup(void) {
   #endif
 
   pinMode(OUTPUT_PIN,OUTPUT);
+  pinMode(LED_BUILTIN,OUTPUT);
   digitalWrite(OUTPUT_PIN, !OUTPUT_STATE_ON);
 
   nfc.begin();

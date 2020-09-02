@@ -15,5 +15,8 @@ Time working:
 - 13/12 18h30 -> 19h30 1h
 - 08/07 21h30 -> 00h30 3h (debug multi reader trouble)
 - 09/07 18h30 -> 20h30 2h (recherches techno readers / tags)
-- 21/08 18h30 -> 20h30 (multiple (x2) pn532 readers)
-
+- 21/08 18h30 -> 20h30 2h (multiple (x2) pn532 readers)
+- 23/08 10h30 -> 14h   3h30 (init fail sometimes... range null or very little for 1 reader when 2 used)
+- 27/08 20h00 -> 00h   4h (réfléxion comment souder sur pcb + souder 1 proto)
+- 28/08 18h00 -> 20h30 2h30 (souder 2eme pcb + test alim 2 readers RF et 1 reader sorties OK)
+- 29/08 8h -> 10h 2h (souder pcb)

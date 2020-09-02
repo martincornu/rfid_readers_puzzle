@@ -67,6 +67,7 @@ Adafruit_PN532 nfcArr[2] = {nfc1,nfc2};
 //Adafruit_PN532 nfc(PN532_IRQ, PN532_RESET);
 
 void setup(void) {
+  bool retCode = false;
   Serial.begin(115200);
   while (!Serial) delay(10); // for Leonardo/Micro/Zero
 
@@ -85,9 +86,26 @@ void setup(void) {
     Serial.print("Found chip PN5"); Serial.println((versiondata>>24) & 0xFF, HEX); 
     Serial.print("Firmware ver. "); Serial.print((versiondata>>16) & 0xFF, DEC); 
     Serial.print('.'); Serial.println((versiondata>>8) & 0xFF, DEC);
-    
+
+    //nfcArr[i].setPassiveActivationRetries(0x05);
+
+    uint8_t cnt = 0;
+    while(nfcArr[i].SAMConfig() != true)
+    {
+      Serial.println(cnt,DEC);
+      cnt++;
+    }
+    #if 0
     // configure board to read RFID tags
-    nfcArr[i].SAMConfig();
+    if (nfcArr[i].SAMConfig() != true)
+    {
+      Serial.print("FAIL to init reader ");Serial.println(i, DEC); 
+    }
+    else
+    {
+      Serial.print("SUCCESS to init reader ");Serial.println(i, DEC); 
+    }
+    #endif
     
     Serial.print(i);Serial.println(" Waiting for an ISO14443A Card ...");
   }
@@ -101,7 +119,7 @@ void loop(void) {
 
 void readTags(void)
 {
-        uint8_t success;
+  uint8_t success;
   uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
   uint8_t uidLength;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
 
